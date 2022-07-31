@@ -1,0 +1,5 @@
+<h2>LISTA DE PERROS</h2>
+
+<div class="list-container" *ngFor="let dog of dogsList">
+    <app-dog-card [dog]="dog" (click)="cardClick(dog.id!)"></app-dog-card>
+</div>

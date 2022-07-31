@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collectionData, collection, addDoc, deleteDoc, orderBy, doc, } from '@angular/fire/firestore';
 import { query, updateDoc } from 'firebase/firestore';
+import { from, Observable } from 'rxjs';
 import { Dog } from 'src/app/shared/models/dog.interface';
 
 @Injectable({
@@ -14,7 +15,7 @@ export class FirestoreService {
 
     addDog(dog:Dog){
       const place = collection(this.firestore, 'dog');
-      return addDoc(place, dog) 
+      return from(addDoc(place, dog) )
     }
 
     getDogs(){
@@ -22,7 +23,7 @@ export class FirestoreService {
       // const q = query(place, orderBy("name"), limit(3));
       //const q = query(citiesRef, where("population", ">", 100000), orderBy("population"), limit(2));
       const q = query(place, orderBy("name", "asc"));
-      return collectionData(q, {idField:'id'} )
+      return from(collectionData(q, {idField:'id'} )) as Observable<Dog[]>
     }
 
     deleteDog(id:string){
