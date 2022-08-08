@@ -1,9 +1,22 @@
 .detail-dog-container{
     background-color: #f0f0f0;
-    width: 800px;
+    width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-container{
+    width: 100%;
+    display:flex
+
 }
 
 .dog-image{
-    width: 100px;
+    width: 15rem;
+    margin: 0.5rem auto;
+}
+
+.text-container{
+    margin:  1rem;
 }

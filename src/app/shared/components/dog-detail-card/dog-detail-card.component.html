@@ -1,21 +1,25 @@
 <div class="detail-dog-container">
-    <img [src]="dog.img" alt="dog" class="dog-image">
-    <h3>{{dog.name}} - {{dog.nickname}} - {{dog.breed}} - {{dog.conduct}}</h3>
-    <hr>
-    Dueños
-    <h4>{{dog.owners.mainOwner.name}}</h4>
-    <div *ngFor="let own of dog.owners.secondaryOwner">
-        <p>{{own.name}}</p>
+    <div class="image-container">
+        <img [src]="dog.img" alt="dog" class="dog-image">
     </div>
-    <hr>
-    <h3>Observaciones</h3>
-    <div *ngFor="let obs of dog.observations">
-        <p>{{obs}}</p>
+    
+    <div class="text-container">
+        <h3>{{dog.name}} - {{dog.nickname}} - {{dog.breed}} - {{dog.conduct}}</h3>
+        <hr>
+        Dueños
+        <h4>{{dog.owners.mainOwner.name}}</h4>
+        <div *ngFor="let own of dog.owners.secondaryOwner">
+            <p>{{own.name}}</p>
+        </div>
+        <hr>
+        <h3>Observaciones</h3>
+        <div *ngFor="let obs of dog.observations">
+            <p>{{obs}}</p>
+        </div>
+    
+        <h3>Días cuidado</h3>
+        <div *ngFor="let day of dog.careDays">
+            <p>{{day.entryDate}}-{{day.outDate}}</p>
+        </div>
     </div>
-
-    <h3>Días cuidado</h3>
-    <div *ngFor="let day of dog.careDays">
-        <p>{{day.entryDate}}-{{day.outDate}}</p>
-    </div>
-
 </div>

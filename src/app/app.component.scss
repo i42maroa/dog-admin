@@ -1,0 +1,20 @@
+.app-container{
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(to top left, var(--page-background-one), var(--page-background-two));
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow-page);
+}
+
+
+.background{
+    background: linear-gradient(to top left, var(--background-color-one), var(--background-color-two));
+    width: 100%;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+    
+}

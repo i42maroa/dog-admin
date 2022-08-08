@@ -14,6 +14,11 @@ import { DogsListPageComponent } from './page/dogs-list/dogs-list.component';
 import { DogDetailPageComponent } from './page/dog-detail/dog-detail.component';
 import { DogCardComponent } from './shared/components/dog-card/dog-card.component';
 import { DogDetailCardComponent } from './shared/components/dog-detail-card/dog-detail-card.component';
+import { DogFormComponent } from './shared/components/dog-form/dog-form.component';
+import { DogFormPageComponent } from './page/dog-form-page/dog-form-page.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -23,9 +28,13 @@ import { DogDetailCardComponent } from './shared/components/dog-detail-card/dog-
     DogsListPageComponent,
     DogDetailPageComponent,
     DogCardComponent,
-    DogDetailCardComponent
+    DogDetailCardComponent,
+    DogFormComponent,
+    DogFormPageComponent
   ],
   imports: [
+    MatFormFieldModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
