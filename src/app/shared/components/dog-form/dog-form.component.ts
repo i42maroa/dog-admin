@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidationService } from 'src/app/core/services/validation/validation.service';
+
 
 @Component({
   selector: 'app-dog-form',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogFormComponent implements OnInit {
 
-  constructor() { }
+  form!:FormGroup;
+  
+
+  constructor(
+    private readonly validationService:ValidationService
+  ) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required, this.validationService.commerceNumberValidate]),
+      raza: new FormControl('', Validators.required),
+    });
   }
 
 }

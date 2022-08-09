@@ -1,6 +1,15 @@
-<form class="form-container">
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Favorite food</mat-label>
-        <input matInput placeholder="Ex. Pizza" value="Sushi">
-      </mat-form-field>
+<form class="container-form" [formGroup]="form">
+
+  <app-dynamic-input
+    labelText="nombre"
+    formControlName="name"
+    [maxLengthInput]="20"
+    class="element-flex"
+  ></app-dynamic-input>
+
+  <app-dynamic-selector
+    labelText="opcion"
+    formControlName="raza"
+    class="element-flex"
+  ></app-dynamic-selector>
 </form>

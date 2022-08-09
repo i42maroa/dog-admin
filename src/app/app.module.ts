@@ -19,7 +19,11 @@ import { DogFormPageComponent } from './page/dog-form-page/dog-form-page.compone
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DynamicInputComponent } from './shared/components/dynamic-input/dynamic-input.component';
+import { DynamicSelectorComponent } from './shared/components/dynamic-selector/dynamic-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,17 @@ import { MatInputModule } from '@angular/material/input';
     DogCardComponent,
     DogDetailCardComponent,
     DogFormComponent,
-    DogFormPageComponent
+    DogFormPageComponent,
+    DynamicInputComponent,
+    DynamicSelectorComponent
   ],
   imports: [
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

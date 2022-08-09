@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill" color="warn">
+    <mat-label> {{ labelText }}</mat-label>
+    <mat-select
+        [(ngModel)]="selectedValue"
+        (selectionChange)="emitSelectValue()"
+        [disabled]="disabled"
+    >
+        <mat-option
+            *ngFor="let option of optionSelect"
+            [value]="option.value">
+            {{ option.label}}
+        </mat-option>    
+    </mat-select>
+</mat-form-field>
