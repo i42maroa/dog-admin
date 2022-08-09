@@ -24,6 +24,12 @@ import { MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DynamicInputComponent } from './shared/components/dynamic-input/dynamic-input.component';
 import { DynamicSelectorComponent } from './shared/components/dynamic-selector/dynamic-selector.component';
+import { DynamicDatepickerRangeComponent } from './shared/components/dynamic-datepicker-range/dynamic-datepicker-range.component';
+
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { DatePipe } from '@angular/common';
+import { DynamicButtonComponent } from './shared/components/dynamic-button/dynamic-button.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +42,17 @@ import { DynamicSelectorComponent } from './shared/components/dynamic-selector/d
     DogFormComponent,
     DogFormPageComponent,
     DynamicInputComponent,
-    DynamicSelectorComponent
+    DynamicSelectorComponent,
+    DynamicDatepickerRangeComponent,
+    DynamicButtonComponent
   ],
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserAnimationsModule,
     FormsModule,
     BrowserModule,
@@ -57,7 +67,7 @@ import { DynamicSelectorComponent } from './shared/components/dynamic-selector/d
     // }),
     // EffectsModule.forRoot([WordEffects])
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

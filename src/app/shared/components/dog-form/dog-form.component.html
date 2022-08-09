@@ -9,7 +9,13 @@
 
   <app-dynamic-selector
     labelText="opcion"
-    formControlName="raza"
+    formControlName="breed"
     class="element-flex"
   ></app-dynamic-selector>
+
 </form>
+
+<app-dynamic-button
+  btnText="Enviar"
+  (click)="submit()">
+</app-dynamic-button>

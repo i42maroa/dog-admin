@@ -1,0 +1,41 @@
+.dynamic-button{
+    width: 100px;
+    height: 20px;
+    border-radius: 31.5px;
+    font-size: 1rem;
+    box-shadow: 1px 2px 8px 0px rgba(68,68,68,0.35);
+    background-color: red;
+    color: #fff;
+    border: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+    font-weight: 400;
+    padding: .375rem .75rem;
+    display: inline-block;
+    margin: 5px;
+}
+
+.dynamic-button:enabled{
+    cursor: pointer;
+}
+
+.dynamic-button:hover, .dynamic-button:active{
+    background: #fff;
+    color: #f00;
+    outline: 1px #f00 solid;
+}
+
+.dynamic-button:disabled{
+    color: grey;
+    background-color: #fff;
+    cursor: not-allowed;
+}
+
+@media only screen and (max-width:765px){
+    .dynamic-button{
+        font-size: 14px;
+        padding: 10px 20px;
+        line-height: 20px;
+    }
+}
