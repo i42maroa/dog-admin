@@ -35,4 +35,17 @@ export class FirestoreService {
       const place = doc(this.firestore, `dog/${dog.id!}`);
       return updateDoc(place, {...dog})
     }
+
+    async subirImagen(nombre: string, imgBase64: any) {
+      // const storareRef = this.firestore.app().storage().ref();
+      // try {
+      //   let respuesta = await storareRef.child("users/" + nombre).putString(imgBase64, 'data_url');
+      //   console.log(respuesta);
+      //   return await respuesta.ref.getDownloadURL();
+      // } catch (err) {
+      //   console.log(err);
+      //   return null;
+      // }
+  
+    }
 }

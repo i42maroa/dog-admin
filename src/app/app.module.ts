@@ -28,8 +28,12 @@ import { DynamicDatepickerRangeComponent } from './shared/components/dynamic-dat
 
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { DatePipe } from '@angular/common';
 import { DynamicButtonComponent } from './shared/components/dynamic-button/dynamic-button.component';
+import { DynamicImageInputComponent } from './shared/components/dynamic-image-input/dynamic-image-input.component';
+import { provideStorage } from '@angular/fire/storage';
+import { getStorage } from 'firebase/storage';
 
 @NgModule({
   declarations: [
@@ -44,11 +48,13 @@ import { DynamicButtonComponent } from './shared/components/dynamic-button/dynam
     DynamicInputComponent,
     DynamicSelectorComponent,
     DynamicDatepickerRangeComponent,
-    DynamicButtonComponent
+    DynamicButtonComponent,
+    DynamicImageInputComponent
   ],
   imports: [
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatToolbarModule,
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
@@ -59,6 +65,7 @@ import { DynamicButtonComponent } from './shared/components/dynamic-button/dynam
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
     // StoreModule.forRoot(ROOT_REDUCERS),
     // StoreDevtoolsModule.instrument({
     //   maxAge:25,

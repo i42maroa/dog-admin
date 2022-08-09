@@ -20,7 +20,8 @@ export class DogFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required, this.validationService.commerceNumberValidate]),
-      breed: new FormControl('', Validators.required)
+      breed: new FormControl('', Validators.required),
+      mainOwner: new FormControl('', Validators.required),
     });
   }
 

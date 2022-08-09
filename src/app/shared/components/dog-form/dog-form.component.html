@@ -7,12 +7,21 @@
     class="element-flex"
   ></app-dynamic-input>
 
+  <app-dynamic-input
+    labelText="Dueño"
+    formControlName="mainOwner"
+    [maxLengthInput]="20"
+    class="element-flex"
+  ></app-dynamic-input>
+
+
   <app-dynamic-selector
     labelText="opcion"
     formControlName="breed"
     class="element-flex"
   ></app-dynamic-selector>
 
+  <app-dynamic-image-input></app-dynamic-image-input>
 </form>
 
 <app-dynamic-button
