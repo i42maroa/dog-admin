@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@angular/fire/storage';
-import { getDownloadURL, list, listAll, ref, uploadBytes } from 'firebase/storage';
+import { getDownloadURL, list, listAll, ref, StorageReference, uploadBytes } from 'firebase/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +11,12 @@ export class StorageService {
     private storage: Storage
   ) { }
 
-  uploadStorageFirebaseImage(file: any, collection:string): Promise<any> {
-    const imgRef = ref(this.storage, `${collection}/${file.name}`);
-    return uploadBytes(imgRef, file);
+  uploadStorageFirebaseImage(file: any, nameFile:string, collection:string): Promise<any> {
+
+    const imgRef = ref(this.storage, `${collection}/${nameFile}`);
+    return uploadBytes(imgRef, file)
+      .then(resp => console.log(resp))
+      .catch(err => console.log(err));
   }
 
 
@@ -32,13 +35,20 @@ export class StorageService {
   }
 
   getUrlFirebaseImage(collection:string, imgName:string):Promise<any> {
-    console.log(`${collection}/adas.PNG`)
-    const imgRef = ref(this.storage, `${collection}/adas.PNG`);
+    const imgRef = ref(this.storage, collection);
     return listAll(imgRef)
-      .then(async resp => {
-        console.log(resp)
-        return await getDownloadURL(resp.items[0]);    
-      })
-      .catch(err => console.log(err))
+    .then(async  resp => {
+      let url = '';
+      for(let item of resp.items){
+        if( item.name.toUpperCase() === imgName.toUpperCase()){
+          url = await getDownloadURL(item); 
+        }
+      }
+      return url;
+    })
+    .catch(err => console.log(err))
   }
+
+
+
 }

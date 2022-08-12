@@ -1,8 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
-import { FirestoreService } from 'src/app/core/services/firestore/firestore.service';
-import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
-import { from } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/app/core/services/firestore/storage.service';
 
 @Component({
@@ -22,10 +18,9 @@ export class DynamicImageInputComponent implements OnInit {
 
   uploadImage(event: any) {
     const file = event.target.files[0];
-    this.previewImage(event.target.files[0]);
-    this.storage.uploadStorageFirebaseImage(event.target.files[0], 'dogs')
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err))
+    this.previewImage(file);
+    this.storage.uploadStorageFirebaseImage(file, 'nuevoArchivo', 'dogs')
+      
   }
 
   previewImage(file:any){
