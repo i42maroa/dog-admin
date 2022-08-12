@@ -1,2 +1,5 @@
-<img *ngIf="preloadImg" [src]="url" alt="preload" width="200" height="200">
-<input type="file" accept=".png, .jpg,.jpeg" (change)="uploadImage($event)">
+<div class="container">
+    <img *ngIf="preloadImg" [src]="url" alt="preload" width="200" height="200">
+    <input type="file" accept=".png, .jpg, .jpeg" (change)="uploadImage($event)">
+</div>
+

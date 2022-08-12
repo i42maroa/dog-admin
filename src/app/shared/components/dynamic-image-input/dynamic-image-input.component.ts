@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { StorageService } from 'src/app/core/services/firestore/storage.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { StorageService } from 'src/app/core/services/firestore/storage.service'
   styleUrls: ['./dynamic-image-input.component.scss']
 })
 export class DynamicImageInputComponent implements OnInit {
+
+  @Output() preloadFile:EventEmitter<any> = new EventEmitter<any>()
 
   constructor(private storage:StorageService) {
   }
@@ -19,8 +21,8 @@ export class DynamicImageInputComponent implements OnInit {
   uploadImage(event: any) {
     const file = event.target.files[0];
     this.previewImage(file);
-    this.storage.uploadStorageFirebaseImage(file, 'nuevoArchivo', 'dogs')
-      
+   // this.storage.uploadStorageFirebaseImage(file, 'nuevoArchivo', 'dogs')
+    this.preloadFile.emit(file);
   }
 
   previewImage(file:any){

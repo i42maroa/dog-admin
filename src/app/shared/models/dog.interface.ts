@@ -5,10 +5,8 @@ export interface Dog{
     name:string,
     nickname?:string,
     breed:string,
-    img:string,
     observations:string[],
     careDays:DayCares[],
-    conduct:string,
     owners:DogOwner
 }
 

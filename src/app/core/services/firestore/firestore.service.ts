@@ -13,9 +13,9 @@ export class FirestoreService {
     private readonly firestore:Firestore ) { }
 
 
-    addDog(dog:Dog){
+    addDog(dog:Dog):Promise<any>{
       const place = collection(this.firestore, 'dog');
-      return from(addDoc(place, dog) )
+      return addDoc(place, dog);
     }
 
     getDogs(){

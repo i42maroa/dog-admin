@@ -16,13 +16,14 @@
 
 
   <app-dynamic-selector
-    labelText="opcion"
-    formControlName="breed"
+    labelText="Sexo"
+    formControlName="sex"
+    [optionSelect]="sexOptions"
     class="element-flex"
   ></app-dynamic-selector>
 
-  <app-dynamic-image-input>
-    
+  <app-dynamic-image-input
+  (preloadFile)="preloadedFile = $event">
   </app-dynamic-image-input>
 </form>
 

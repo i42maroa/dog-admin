@@ -11,6 +11,8 @@ export class DogDetailCardComponent implements OnInit {
 
   constructor() { }
 
+  @Input() image!: string;
+
   dog:Dog = DOG_EXAMPLES[0]
 
   ngOnInit(): void {
